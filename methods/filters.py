@@ -30,7 +30,7 @@ def filterData(df, user_word_input, user_tile_color_input):
     for i in yellow:
         df = df[df['word'].str.contains(i)]
 
-    # Handles duplicate letters such as POPPY so that the count of yellow characters matches the count of the letters in the current word
+    # Handles duplicate letters such as POPPY so that the count of yellow characters matches the count of the letters in the current word.
     for i in yellow:
         df = df[df['word'].str.count(i) == yellow.count(i)]
 

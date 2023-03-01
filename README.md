@@ -7,10 +7,32 @@ Coded in Python by Shawn Pradeep.
 ## Dependencies
 Wordle Solver requires a few Python libraries to run:
 
-For production environments...
+__Install Python:__
+https://www.python.org/downloads/
 
+If you type the following command and receive a similar output, you've succesfully installed Python:
+```sh
+python --version
+Python 3.10.6
+```
+
+__Install pip:__
+```sh
+curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+```
+```sh
+python get-pip.py
+```
+If you type the following command and receive a similar output, you've succesfully installed pip:
+```sh
+pip --version
+pip 23.0.1
+```
+__Additional Dependencies:__
 ```sh
 pip install pandas
+```
+```sh
 pip install jupyter
 ```
 

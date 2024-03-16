@@ -1,22 +1,22 @@
 def filterData(df, userWordInput, userTileInput):
     alphabet = "abcdefghijklmnopqrstuvwxyz"
     yellow = list()
-    grey = list()
+    #grey = list()
     
     # Create a reg expression for words that have the green spaces correctly placed
     reg_expression = "^"
     for i in range(len(userTileInput)):
         if userTileInput[i] == "Y":
-            alphabet = alphabet.replace(userWordInput[i],'')
-            reg_expression += '[{}]'.format(alphabet)
-            alphabet = "abcdefghijklmnopqrstuvwxyz"
+            #alphabet = alphabet.replace(userWordInput[i],'')
+            reg_expression += '[{}]'.format(alphabet.replace(userWordInput[i],''))
+            #alphabet = "abcdefghijklmnopqrstuvwxyz"
             yellow.append(userWordInput[i])
         elif userTileInput[i] == "G":
-            #alphabet = alphabet.replace(user_word_input[i],'')
-            #reg_expression+='[{}]'.format(alphabet)
+            alphabet = alphabet.replace(userWordInput[i],'')
+            reg_expression+='[{}]'.format(alphabet)
             #alphabet = "abcdefghijklmnopqrstuvwxyz"
-            reg_expression += '.'
-            grey.append(userWordInput[i])
+            #reg_expression += '.'
+            #grey.append(userWordInput[i])
         elif userTileInput[i] == "$":
             reg_expression += userWordInput[i]
 
@@ -27,8 +27,8 @@ def filterData(df, userWordInput, userTileInput):
     df = df[df['word'].str.contains(reg_expression, regex = True)]
 
     # Goes through the list of grey characters, and eliminates words in the df that contain them
-    for i in grey:
-        df = df[~(df['word'].str.contains(i))]
+    #for i in grey:
+    #    df = df[~(df['word'].str.contains(i))]
 
     # For that index, the yellow character in userTileInput is not supposed to be in the solution word (i.e. it can be any other character)
     # Handles duplicate letters such as POPPY so that the count of yellow characters matches the count of the letters in the current word
